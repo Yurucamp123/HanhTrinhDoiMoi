@@ -1,0 +1,210 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  /* Improved color scheme for better readability */
+  --background: oklch(0.99 0.005 85);
+  --foreground: oklch(0.12 0.02 25);
+  --card: oklch(0.98 0.005 85);
+  --card-foreground: oklch(0.12 0.02 25);
+  --popover: oklch(0.98 0.005 85);
+  --popover-foreground: oklch(0.12 0.02 25);
+  --primary: oklch(0.45 0.25 25); /* Darker red for better contrast */
+  --primary-foreground: oklch(0.98 0.01 85);
+  --secondary: oklch(0.65 0.18 75); /* Adjusted golden yellow */
+  --secondary-foreground: oklch(0.12 0.02 25);
+  --muted: oklch(0.95 0.01 85);
+  --muted-foreground: oklch(0.35 0.02 25); /* Darker for better readability */
+  --accent: oklch(0.65 0.18 75);
+  --accent-foreground: oklch(0.12 0.02 25);
+  --destructive: oklch(0.577 0.245 27.325);
+  --destructive-foreground: oklch(0.98 0.01 85);
+  --border: oklch(0.85 0.01 85);
+  --input: oklch(0.92 0.01 85);
+  --ring: oklch(0.45 0.25 25);
+  --chart-1: oklch(0.45 0.25 25);
+  --chart-2: oklch(0.65 0.18 75);
+  --chart-3: oklch(0.35 0.15 25);
+  --chart-4: oklch(0.55 0.18 45);
+  --chart-5: oklch(0.45 0.12 65);
+  --radius: 0.625rem;
+  --sidebar: oklch(0.98 0.01 85);
+  --sidebar-foreground: oklch(0.12 0.02 25);
+  --sidebar-primary: oklch(0.45 0.25 25);
+  --sidebar-primary-foreground: oklch(0.98 0.01 85);
+  --sidebar-accent: oklch(0.95 0.01 85);
+  --sidebar-accent-foreground: oklch(0.12 0.02 25);
+  --sidebar-border: oklch(0.85 0.01 85);
+  --sidebar-ring: oklch(0.45 0.25 25);
+}
+
+.dark {
+  --background: oklch(0.08 0.02 25);
+  --foreground: oklch(0.95 0.01 85);
+  --card: oklch(0.12 0.02 25);
+  --card-foreground: oklch(0.95 0.01 85);
+  --popover: oklch(0.12 0.02 25);
+  --popover-foreground: oklch(0.95 0.01 85);
+  --primary: oklch(0.65 0.22 25);
+  --primary-foreground: oklch(0.08 0.02 25);
+  --secondary: oklch(0.75 0.15 75);
+  --secondary-foreground: oklch(0.08 0.02 25);
+  --muted: oklch(0.18 0.02 25);
+  --muted-foreground: oklch(0.75 0.02 25);
+  --accent: oklch(0.75 0.15 75);
+  --accent-foreground: oklch(0.08 0.02 25);
+  --destructive: oklch(0.396 0.141 25.723);
+  --destructive-foreground: oklch(0.95 0.01 85);
+  --border: oklch(0.22 0.02 25);
+  --input: oklch(0.22 0.02 25);
+  --ring: oklch(0.65 0.22 25);
+  --chart-1: oklch(0.65 0.22 25);
+  --chart-2: oklch(0.75 0.15 75);
+  --chart-3: oklch(0.45 0.15 25);
+  --chart-4: oklch(0.65 0.18 45);
+  --chart-5: oklch(0.55 0.12 65);
+  --sidebar: oklch(0.12 0.02 25);
+  --sidebar-foreground: oklch(0.95 0.01 85);
+  --sidebar-primary: oklch(0.65 0.22 25);
+  --sidebar-primary-foreground: oklch(0.08 0.02 25);
+  --sidebar-accent: oklch(0.18 0.02 25);
+  --sidebar-accent-foreground: oklch(0.95 0.01 85);
+  --sidebar-border: oklch(0.22 0.02 25);
+  --sidebar-ring: oklch(0.65 0.22 25);
+}
+
+@theme inline {
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+  /* Added Inter font variable for Vietnamese support */
+  --font-inter: var(--font-inter);
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+
+  /* Added smooth scrolling for storytelling experience */
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* Custom scrollbar styling */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: var(--muted);
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: var(--primary);
+    border-radius: 4px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--accent);
+  }
+}
+
+/* Added custom animations for storytelling elements */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.8s ease-out forwards;
+}
+
+.animate-slide-in-left {
+  animation: slideInLeft 0.8s ease-out forwards;
+}
+
+.animate-slide-in-right {
+  animation: slideInRight 0.8s ease-out forwards;
+}
+
+/* Parallax and scroll effects */
+.parallax-bg {
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.section-transition {
+  transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
